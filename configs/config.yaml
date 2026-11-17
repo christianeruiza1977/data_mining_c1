@@ -1,0 +1,15 @@
+project:
+  name: ProjectDataMiningII
+  random_seed: 42
+
+paths:
+  raw_data: data/raw
+  interim_data: data/interim
+  processed_data: data/processed
+  external_data: data/external
+  models: outputs/models
+  predictions: outputs/predictions
+  figures: outputs/figures
+  reports: outputs/reports
+  logs: logs
+

@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+*.egg-info/
+build/
+dist/
+
+# Entornos y herramientas locales
+.venv*/
+venv/
+env/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Datos y resultados generados (se conservan los .gitkeep)
+data/raw/*
+!data/raw/.gitkeep
+data/interim/*
+!data/interim/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/external/*
+!data/external/.gitkeep
+outputs/figures/*
+!outputs/figures/.gitkeep
+outputs/models/*
+!outputs/models/.gitkeep
+outputs/predictions/*
+!outputs/predictions/.gitkeep
+outputs/reports/*
+!outputs/reports/.gitkeep
+logs/*
+!logs/.gitkeep
+
+# Datasets sinteticos x1000 generados por los notebooks (Fase 10, ~50 MB)
+data/redes_grande.*
+notebooks/data/redes_grande.*
+
+# Cache local del registro de skills
+.atl/.skill-registry.cache.json
+
