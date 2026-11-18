@@ -1,0 +1,667 @@
+{
+  "fuente": {
+    "notebook": "notebooks/Ejercicio_Practico_Semana3.ipynb (base: notebooks/anteriores/Ejercicio_Practico_Semana3_G9.ipynb + correcciones fase C)",
+    "kernel": "Python 3.12.13 (.venv312)",
+    "celda": "indice base 0 en nb.cells"
+  },
+  "limpieza": {
+    "filas_crudas": {
+      "valor": 40000,
+      "celda": 10,
+      "execution_count": 5
+    },
+    "filas_limpias": {
+      "valor": 39688,
+      "celda": 21,
+      "execution_count": 11
+    },
+    "dup_tweet_id": {
+      "valor": 0,
+      "celda": 10,
+      "execution_count": 5
+    },
+    "dup_texto": {
+      "valor": 173,
+      "celda": 10,
+      "execution_count": 5
+    },
+    "textos_contradictorios": {
+      "valor": 62,
+      "celda": 10,
+      "execution_count": 5
+    },
+    "filas_contradictorias": {
+      "valor": 207,
+      "celda": 10,
+      "execution_count": 5
+    },
+    "dup_exactos_eliminados": {
+      "valor": 28,
+      "celda": 21,
+      "execution_count": 11
+    },
+    "vacios_tras_limpiar": {
+      "valor": 77,
+      "celda": 21,
+      "execution_count": 11
+    },
+    "empty_n_crudo": {
+      "valor": 827,
+      "celda": 14,
+      "execution_count": 7
+    },
+    "empty_pct_crudo": {
+      "valor": 2.07,
+      "celda": 14,
+      "execution_count": 7
+    },
+    "empty_n_limpio": {
+      "valor": 810,
+      "celda": 21,
+      "execution_count": 11
+    },
+    "empty_decision": {
+      "valor": "se conserva como 13.a clase (etiqueta ruidosa, ningun texto vacio)",
+      "celda": 16,
+      "execution_count": 8
+    },
+    "razon_desbalance_crudo": {
+      "valor": 78.5,
+      "celda": 14,
+      "execution_count": 7
+    }
+  },
+  "linea_base_13_clases": {
+    "azar_1_k": {
+      "valor": 0.0769,
+      "celda": 56,
+      "execution_count": 29
+    },
+    "mayoritaria_clase": {
+      "valor": "neutral",
+      "celda": 56,
+      "execution_count": 29
+    },
+    "mayoritaria_accuracy": {
+      "valor": 0.215,
+      "celda": 56,
+      "execution_count": 29
+    },
+    "mayoritaria_f1_macro": {
+      "valor": 0.0272,
+      "celda": 56,
+      "execution_count": 29
+    }
+  },
+  "modelos_13_clases_prueba": {
+    "NB": {
+      "valor": {
+        "f1_macro": 0.1444,
+        "accuracy": 0.2991,
+        "tiempo_s": 1.07
+      },
+      "celda": 60,
+      "execution_count": 31
+    },
+    "SVM": {
+      "valor": {
+        "f1_macro": 0.1976,
+        "accuracy": 0.2696,
+        "tiempo_s": 1.84
+      },
+      "celda": 60,
+      "execution_count": 31
+    },
+    "RNN": {
+      "valor": {
+        "f1_macro": 0.1491,
+        "accuracy": 0.1764,
+        "tiempo_s": 57.8,
+        "epocas": 5,
+        "mejor_epoca": 3
+      },
+      "celda": 72,
+      "execution_count": 37
+    },
+    "mejor_modelo": {
+      "valor": "SVM",
+      "celda": 60,
+      "execution_count": 31,
+      "nota": "elegido por F1 macro de VALIDACION (NB 0.1428, SVM 0.1873)"
+    },
+    "hiperparametros": {
+      "valor": {
+        "NB": {
+          "alpha": 0.03,
+          "ngramas": [
+            1,
+            2
+          ],
+          "f1_val": 0.14277433072988222
+        },
+        "SVM": {
+          "C": 0.1,
+          "ngramas": [
+            1,
+            2
+          ],
+          "class_weight": "balanced",
+          "f1_val": 0.1873217015136422
+        }
+      },
+      "celda": 58,
+      "execution_count": 30
+    },
+    "prueba_usada_una_vez": {
+      "valor": true,
+      "celda": 60,
+      "execution_count": 31,
+      "nota": "NB y SVM se evaluan en prueba una vez tras elegir hiperparametros en validacion; RNN con early stopping sobre val_loss"
+    }
+  },
+  "f1_vs_numero_de_clases": {
+    "semillas": [
+      42,
+      43,
+      44
+    ],
+    "ks": [
+      3,
+      5,
+      7,
+      9,
+      11
+    ],
+    "resumen": {
+      "valor": [
+        {
+          "k": 3,
+          "modelo": "NB",
+          "f1_media": 0.4802,
+          "f1_desv": 0.0825,
+          "acc_media": 0.6088,
+          "azar": 0.3333,
+          "ganancia_vs_azar": 1.44
+        },
+        {
+          "k": 3,
+          "modelo": "RNN",
+          "f1_media": 0.4943,
+          "f1_desv": 0.1297,
+          "acc_media": 0.5905,
+          "azar": 0.3333,
+          "ganancia_vs_azar": 1.48
+        },
+        {
+          "k": 3,
+          "modelo": "SVM",
+          "f1_media": 0.5427,
+          "f1_desv": 0.0945,
+          "acc_media": 0.6485,
+          "azar": 0.3333,
+          "ganancia_vs_azar": 1.63
+        },
+        {
+          "k": 5,
+          "modelo": "NB",
+          "f1_media": 0.3039,
+          "f1_desv": 0.0564,
+          "acc_media": 0.4932,
+          "azar": 0.2,
+          "ganancia_vs_azar": 1.52
+        },
+        {
+          "k": 5,
+          "modelo": "RNN",
+          "f1_media": 0.3289,
+          "f1_desv": 0.0991,
+          "acc_media": 0.3882,
+          "azar": 0.2,
+          "ganancia_vs_azar": 1.64
+        },
+        {
+          "k": 5,
+          "modelo": "SVM",
+          "f1_media": 0.3926,
+          "f1_desv": 0.0646,
+          "acc_media": 0.5186,
+          "azar": 0.2,
+          "ganancia_vs_azar": 1.96
+        },
+        {
+          "k": 7,
+          "modelo": "NB",
+          "f1_media": 0.2374,
+          "f1_desv": 0.0282,
+          "acc_media": 0.4278,
+          "azar": 0.1429,
+          "ganancia_vs_azar": 1.66
+        },
+        {
+          "k": 7,
+          "modelo": "RNN",
+          "f1_media": 0.2592,
+          "f1_desv": 0.0472,
+          "acc_media": 0.3341,
+          "azar": 0.1429,
+          "ganancia_vs_azar": 1.81
+        },
+        {
+          "k": 7,
+          "modelo": "SVM",
+          "f1_media": 0.3155,
+          "f1_desv": 0.0533,
+          "acc_media": 0.4387,
+          "azar": 0.1429,
+          "ganancia_vs_azar": 2.21
+        },
+        {
+          "k": 9,
+          "modelo": "NB",
+          "f1_media": 0.1897,
+          "f1_desv": 0.0182,
+          "acc_media": 0.3623,
+          "azar": 0.1111,
+          "ganancia_vs_azar": 1.71
+        },
+        {
+          "k": 9,
+          "modelo": "RNN",
+          "f1_media": 0.1937,
+          "f1_desv": 0.0292,
+          "acc_media": 0.2459,
+          "azar": 0.1111,
+          "ganancia_vs_azar": 1.74
+        },
+        {
+          "k": 9,
+          "modelo": "SVM",
+          "f1_media": 0.258,
+          "f1_desv": 0.0262,
+          "acc_media": 0.3568,
+          "azar": 0.1111,
+          "ganancia_vs_azar": 2.32
+        },
+        {
+          "k": 11,
+          "modelo": "NB",
+          "f1_media": 0.1689,
+          "f1_desv": 0.0036,
+          "acc_media": 0.3179,
+          "azar": 0.0909,
+          "ganancia_vs_azar": 1.86
+        },
+        {
+          "k": 11,
+          "modelo": "RNN",
+          "f1_media": 0.1689,
+          "f1_desv": 0.0169,
+          "acc_media": 0.2151,
+          "azar": 0.0909,
+          "ganancia_vs_azar": 1.86
+        },
+        {
+          "k": 11,
+          "modelo": "SVM",
+          "f1_media": 0.2286,
+          "f1_desv": 0.0091,
+          "acc_media": 0.3065,
+          "azar": 0.0909,
+          "ganancia_vs_azar": 2.51
+        }
+      ],
+      "celda": 85,
+      "execution_count": 43
+    },
+    "criterio": {
+      "valor": {
+        "f1_macro_minimo": 0.3,
+        "ganancia_minima_vs_azar": 2.0
+      },
+      "celda": 93,
+      "execution_count": 47
+    },
+    "k_recomendado": {
+      "valor": 7,
+      "celda": 93,
+      "execution_count": 47
+    },
+    "tiempo_total_s": {
+      "valor": 457.1,
+      "celda": 83,
+      "execution_count": 42
+    }
+  },
+  "lda": {
+    "tweets_muestra": {
+      "valor": 5000,
+      "celda": 41,
+      "execution_count": 21
+    },
+    "tweets_modelados": {
+      "valor": 4748,
+      "celda": 47,
+      "execution_count": 25
+    },
+    "vocabulario": {
+      "valor": 1038,
+      "celda": 42,
+      "execution_count": 22
+    },
+    "rejilla_K": [
+      5,
+      8,
+      10,
+      12,
+      15,
+      20
+    ],
+    "perplejidad_validacion": {
+      "valor": [
+        2843,
+        4542,
+        5530,
+        6603,
+        8302,
+        10703
+      ],
+      "celda": 44,
+      "execution_count": 23
+    },
+    "coherencia_npmi": {
+      "valor": [
+        -0.193,
+        -0.246,
+        -0.297,
+        -0.323,
+        -0.427,
+        -0.401
+      ],
+      "celda": 44,
+      "execution_count": 23
+    },
+    "K_elegido": {
+      "valor": 5,
+      "celda": 46,
+      "execution_count": 24,
+      "nota": "menor perplejidad de validacion, confirmada por la mayor coherencia NPMI"
+    },
+    "palabras_por_tema": {
+      "valor": [
+        [
+          "home",
+          "today",
+          "night",
+          "working",
+          "come",
+          "hate",
+          "going",
+          "house",
+          "wait",
+          "sure"
+        ],
+        [
+          "good",
+          "thanks",
+          "new",
+          "right",
+          "nice",
+          "sleep",
+          "time",
+          "watching",
+          "sorry",
+          "oh"
+        ],
+        [
+          "going",
+          "love",
+          "really",
+          "sad",
+          "hey",
+          "morning",
+          "good",
+          "thank",
+          "doing",
+          "looks"
+        ],
+        [
+          "work",
+          "miss",
+          "need",
+          "week",
+          "wish",
+          "say",
+          "feel",
+          "getting",
+          "feeling",
+          "yes"
+        ],
+        [
+          "day",
+          "happy",
+          "make",
+          "time",
+          "fun",
+          "mothers",
+          "good",
+          "hope",
+          "mother",
+          "mom"
+        ]
+      ],
+      "celda": 47,
+      "execution_count": 25
+    },
+    "lift_top": {
+      "valor": {
+        "love|T4": 1.6763117204411913,
+        "empty|T1": 1.4216845824475253,
+        "happiness|T4": 1.342658924666315,
+        "fun|T4": 1.3094586312563838,
+        "hate|T2": 1.295161805407707,
+        "sadness|T3": 1.2813809608676836,
+        "enthusiasm|T3": 1.2810998329692922,
+        "hate|T3": 1.2519839276745357
+      },
+      "celda": 49,
+      "execution_count": 26
+    }
+  },
+  "bertopic": {
+    "valor": {
+      "ejecutado": true,
+      "n_temas_bertopic": 25,
+      "n_temas_lda": 5,
+      "pct_sin_tema_bertopic": 46.9,
+      "pct_sin_tema_lda": 5.0,
+      "pureza_bertopic": 0.3002,
+      "pureza_lda": 0.2291,
+      "tiempo_s": 93.0
+    },
+    "celda": 138,
+    "execution_count": 67
+  },
+  "spark": {
+    "version": {
+      "valor": "4.3.0",
+      "celda": 98,
+      "execution_count": 49
+    },
+    "mllib_test": {
+      "valor": {
+        "f1_macro_sklearn": 0.1424,
+        "accuracy": 0.2361,
+        "f1_ponderado_mllib": 0.2362,
+        "tiempo_entrenamiento_s": 3.5,
+        "tiempo_prediccion_eval_s": 1.63
+      },
+      "celda": 101,
+      "execution_count": 51
+    },
+    "mejor_smoothing": {
+      "valor": 1.0,
+      "celda": 100,
+      "execution_count": 50
+    },
+    "tiempos_spark_s": {
+      "valor": {
+        "caracteristicas": 7.6,
+        "ajuste_smoothing": 3.6,
+        "entrenamiento_final": 3.5,
+        "prediccion_eval": 1.63,
+        "total_punta_a_punta": 28.1,
+        "sesion": 11.8
+      },
+      "celda": 114,
+      "execution_count": 57
+    },
+    "sklearn_nb_mismo_algoritmo": {
+      "valor": {
+        "f1_macro": 0.0965,
+        "accuracy": 0.2916,
+        "entrenar_s": 0.65,
+        "predecir_s": 0.1
+      },
+      "celda": 114,
+      "execution_count": 57
+    },
+    "spark_vs_sklearn_veces": {
+      "valor": 37,
+      "celda": 114,
+      "execution_count": 57
+    },
+    "mapreduce": {
+      "valor": {
+        "tiempo_rdd_s": 27.54,
+        "tiempo_dataframe_s": 5.48,
+        "palabras_distintas": 29425
+      },
+      "celda": 103,
+      "execution_count": 52
+    },
+    "spark_sql_exchange": {
+      "valor": {
+        "exchange_agregacion": 1,
+        "exchange_sql": 2,
+        "exchange_ventana": 2
+      },
+      "celda": 110,
+      "execution_count": 55
+    },
+    "volumen_escenarios": {
+      "valor": [
+        {
+          "escenario": "10 mil/día",
+          "tweets_dia": 10000,
+          "GB_dia": 0.005,
+          "GB_anio": 1.8,
+          "RAM_estimada_GB": 5.5,
+          "cabe_en_un_nodo": true,
+          "RAM_30d_GB": 0.5,
+          "cabe_30d": true
+        },
+        {
+          "escenario": "1 millón/día",
+          "tweets_dia": 1000000,
+          "GB_dia": 0.5,
+          "GB_anio": 182.5,
+          "RAM_estimada_GB": 550.2,
+          "cabe_en_un_nodo": false,
+          "RAM_30d_GB": 45.2,
+          "cabe_30d": false
+        },
+        {
+          "escenario": "100 millones/día",
+          "tweets_dia": 100000000,
+          "GB_dia": 50.0,
+          "GB_anio": 18250.0,
+          "RAM_estimada_GB": 55021.3,
+          "cabe_en_un_nodo": false,
+          "RAM_30d_GB": 4522.3,
+          "cabe_30d": false
+        }
+      ],
+      "celda": 116,
+      "execution_count": 58,
+      "nota": "supuestos declarados: 500 bytes/registro, 365 dias, nodo 64 GB, 50 % RAM"
+    },
+    "csv_vs_parquet_tamano_mb": {
+      "valor": {
+        "resultados_csv_mb": 0.00044,
+        "resultados_parquet_mb": 0.003837,
+        "corpus_csv_mb": 3.430851,
+        "corpus_parquet_snappy_mb": 2.246883
+      },
+      "celda": 152,
+      "execution_count": 74
+    },
+    "csv_vs_parquet_lectura_s": {
+      "valor": {
+        "pandas_csv_s": 0.0091,
+        "pandas_parquet_s": 0.0075,
+        "spark_csv_s": 0.2139,
+        "spark_parquet_s": 0.1646
+      },
+      "celda": 152,
+      "execution_count": 74,
+      "nota": "mejor de 3; pandas lee el corpus, Spark lee y cuenta por emocion"
+    }
+  },
+  "fase9_otros": {
+    "llm_zero_shot": {
+      "valor": {
+        "ejecutado": true,
+        "modelo": "Qwen/Qwen2.5-0.5B-Instruct",
+        "f1_macro_llm": 0.0227,
+        "f1_macro_mejor_modelo_mismos_100": 0.1763,
+        "s_por_tweet_llm": 4.275,
+        "ms_por_tweet_mejor_modelo": 0.464,
+        "pct_fuera_de_lista": 88.0
+      },
+      "celda": 142,
+      "execution_count": 69
+    },
+    "embeddings": {
+      "valor": {
+        "ejecutado": true,
+        "f1_macro_embeddings": 0.1594,
+        "f1_macro_tfidf_mejor": 0.1976,
+        "accuracy_embeddings": 0.3564,
+        "C": 1.0,
+        "n_train_usado": 27781,
+        "tiempo_codificar_s": 96.7,
+        "tiempo_entrenar_s": 22.13
+      },
+      "celda": 146,
+      "execution_count": 71
+    },
+    "drift": {
+      "valor": {
+        "psi_predicciones": 0.3505,
+        "psi_etiquetas_reales": 0.5191,
+        "f1_macro_referencia": 0.1665,
+        "f1_macro_reciente": 0.1422,
+        "clase_mayor_aporte": "happiness"
+      },
+      "celda": 148,
+      "execution_count": 72
+    }
+  },
+  "decisiones": {
+    "granularidad": {
+      "valor": "7 clases: unico k que cumple F1>=0.30 y >=2x azar con SVM (k=7: F1 0.316, 2.21x); k=5 queda en 1.96x el azar (no cumple)",
+      "celda": 93,
+      "execution_count": 47
+    },
+    "modelo": {
+      "valor": "SVM lineal TF-IDF (mejor F1 macro en validacion y prueba; segundos de entrenamiento)",
+      "celda": 76,
+      "execution_count": 39
+    },
+    "spark": {
+      "valor": "No se justifica con 40 000 tweets (Spark local mas lento que sklearn); si con >=1 millon tweets/dia y un ano de historia",
+      "celda": 116,
+      "execution_count": 58
+    }
+  }
+}

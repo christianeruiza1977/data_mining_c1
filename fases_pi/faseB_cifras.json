@@ -1,0 +1,103 @@
+{
+  "fuente": "notebooks/Ejercicio_Practico_Semana2.ipynb (Restart & Run All con nbclient, kernel .venv312 Python 3.12.13, networkx 3.7, 2026-11-18). R8 v2: normalizacion completa solo en organizaciones; miembros solo strip.",
+  "nota_celdas": "Indices de celda base 0 del notebook final (45 celdas). Cada cifra indica la celda cuya salida la contiene.",
+  "limpieza_y_normalizacion": {
+    "filas_crudas": {"valor": 10598, "celda": 8, "nota": "946 nulos en member; 9629 filas utiles (salida celda 8)"},
+    "member_nulos": {"valor": 946, "celda": 8},
+    "membresias_tras_limpieza": {"valor": 9629, "celda": 8},
+    "organizaciones_unicas_antes_despues": {"antes": 41, "despues": 41, "grupos_fusionados": 0, "regla": "minusculas, sin espacios ni puntos", "celda": 8},
+    "miembros_unicos_antes_despues": {"antes": 8878, "despues": 8878, "nombres_con_espacios_extremos": 20, "fusiones_por_strip": 0, "regla": "solo strip", "celda": 8},
+    "miembros_fusion_no_aplicada": {"grupos": 7, "lista": [["Ben", "ben"], ["Chris", "chris"], ["Dan", "dan"], ["Greg", "greg"], ["Lei Xu", "LeiXu"], ["Lin", "lin"], ["Sarah", "sarah "]], "celda": 8, "motivo": "decision del equipo: nombres de pila de personas distintas; creaban aristas falsas (google-facebook, google-reactjs)"},
+    "membresias_tras_normalizar": {"antes": 9629, "despues": 9629, "celda": 8}
+  },
+  "grafo_bipartito": {
+    "nodos": {"valor": 8919, "orgs": 41, "miembros": 8878, "celda": 8},
+    "aristas": {"valor": 9629, "celda": 8},
+    "densidad_bipartita": {"valor": 0.02645, "celda": 8},
+    "miembros_multi_org": {"valor": 724, "celda": 8},
+    "miembros_grado_1": {"valor": 8154, "pct": 91.8, "grado_max": 3, "celda": 17},
+    "microsoft_miembros": {"valor": 3916, "mediana_orgs": 51, "celda": 17}
+  },
+  "proyeccion": {
+    "nodos": {"valor": 41, "celda": 11},
+    "aristas": {"valor": 84, "celda": 11},
+    "densidad": {"valor": 0.1024, "celda": null, "nota": "derivada: 84 / (41*40/2) = 0.10244; el notebook no la imprime"},
+    "top_pares": {"azure-microsoft": 555, "flutter-google": 15, "microsoft-nodejs": 15, "apache-microsoft": 10, "babel-nodejs": 10, "celda": 11},
+    "componentes": {"valor": 9, "gigante": 33, "aisladas": ["airbnb", "bitcoin", "docker", "laravel", "opencv", "plotly", "redis", "udacity"], "celda": 17},
+    "diametro_ponderado": {"valor": 2.8667, "celda": 17},
+    "longitud_media_ponderada": {"valor": 1.1763, "celda": 17},
+    "diametro_saltos": {"valor": 5, "celda": 17},
+    "longitud_media_saltos": {"valor": 2.3011, "celda": 17},
+    "clustering_ponderado": {"valor": 0.0017, "celda": 17},
+    "clustering_sin_pesos": {"valor": 0.2809, "celda": 17},
+    "transitividad": {"valor": 0.3761, "celda": 17}
+  },
+  "centralidad_top3": {
+    "celda": 14,
+    "grado": [["microsoft", 0.4750], ["nodejs", 0.3500], ["google", 0.3250]],
+    "cercania": [["microsoft", 1.2425], ["azure", 1.2396], ["nodejs", 1.2199]],
+    "intermediacion": [["microsoft", 0.4011], ["nodejs", 0.2895], ["babel", 0.1987]],
+    "vector_propio": [["microsoft", 0.7069], ["azure", 0.7065], ["nodejs", 0.0232]],
+    "pagerank": [["microsoft", 0.2266], ["azure", 0.2000], ["google", 0.0653]],
+    "vector_propio_log": [["microsoft", 0.5191], ["azure", 0.4289], ["nodejs", 0.3548]],
+    "spearman_rango": {"min": 0.594, "par_min": "vector propio-PageRank", "max": 0.874, "par_max": "grado-vector propio"},
+    "spearman_vp_crudo_vs_log": 0.936,
+    "masa_azure_microsoft_vp_crudo": 0.9989,
+    "masa_azure_microsoft_vp_log": 0.4534
+  },
+  "puntos_articulacion": {
+    "celda": 20,
+    "lista": ["apache", "babel", "facebook", "google", "microsoft", "python", "reactjs", "vuejs"],
+    "efecto_retiro": {"babel": [30, 2], "facebook": [30, 1, 1], "microsoft": [30, 1, 1], "apache": [31, 1], "google": [31, 1], "python": [31, 1], "reactjs": [31, 1], "vuejs": [31, 1]}
+  },
+  "robustez": {
+    "celda": 20,
+    "gigante_inicial_sobre_41": 0.805,
+    "fraccion_para_gigante_bajo_50pct": {"aleatorio_media_30": [0.268, "11 de 41"], "dirigido_grado": [0.146, "6 de 41"], "dirigido_intermediacion": [0.098, "4 de 41"]},
+    "gigante_tras_eliminar_4": {"aleatorio": 0.694, "grado": 0.585, "intermediacion": 0.488}
+  },
+  "caminos": {
+    "celda": 23,
+    "alcance_desde_microsoft": 33,
+    "dijkstra_microsoft_google": {"ruta": ["microsoft", "google"], "distancia": 0.2, "peso": 5},
+    "floyd_warshall": {"pares_con_camino": 1097, "pares_sin_camino": 584, "dif_max_vs_dijkstra": 4.44e-16}
+  },
+  "comunidades": {
+    "celda": 26,
+    "Louvain": {"Q_seed42": 0.288, "n_comunidades": 11, "mayor": 16, "singletons": 8, "Q_20_semillas": "0.2886 ± 0.0005", "n_com_20_semillas": "11.0 ± 0.0", "ARI": 0.807, "NMI": 0.903},
+    "Leiden": {"Q_seed42": 0.288987, "n_comunidades": 11, "mayor": 18, "singletons": 8, "Q_20_semillas": "0.2882 ± 0.0008", "n_com_20_semillas": "11.0 ± 0.0", "ARI": 0.859, "NMI": 0.925, "metric": "modularity", "tratamiento": "nodos enteros (P_int) + semilla fija; 20 semillas"},
+    "Label Propagation": {"Q_seed42": 0.118704, "n_comunidades": 12, "mayor": 24, "singletons": 8, "Q_20_semillas": "0.1120 ± 0.0520", "n_com_20_semillas": "11.9 ± 0.4", "ARI": 0.926, "NMI": 0.972},
+    "Girvan-Newman": {"Q": 0.081218, "n_comunidades": 19, "mayor": 11, "singletons": 11, "determinista": true},
+    "comunidades_desconectadas": 0,
+    "leiden_seed42": [18, 11, 4, "8 singletons"]
+  },
+  "recomendador_sin_fuga": {
+    "celda": 29,
+    "todos": {"n": 724, "Co-ocurrencia": [0.837, 0.908, 0.929], "Jaccard": [0.818, 0.897, 0.930], "Coseno": [0.822, 0.893, 0.928], "Popularidad": [0.786, 0.815, 0.871], "orden": "hit@1, hit@3, hit@5 (media de 10 semillas)"},
+    "solo_azure_microsoft": {"valor": 545, "de": 724},
+    "sin_bloque_azure_microsoft": {"n": 179, "Co-ocurrencia": [0.337, 0.625, 0.713], "Jaccard": [0.264, 0.582, 0.709], "Coseno": [0.277, 0.564, 0.703], "Popularidad": [0.131, 0.249, 0.478]}
+  },
+  "control_fuga": {
+    "celda": 32,
+    "todos_max_inflacion_pts": 3.1,
+    "sin_bloque": {"Co-ocurrencia_hit5": [0.713, 0.842, 12.9], "Jaccard_hit5": [0.709, 0.822, 11.3], "Coseno_hit5": [0.703, 0.831, 12.7], "Popularidad_hit5": [0.478, 0.489, 1.2], "orden": "sin fuga, con fuga, diferencia en puntos"}
+  },
+  "organizaciones_puente": {
+    "celda": 29,
+    "top3": [
+      {"org": "microsoft", "intermediacion": 0.4011, "articulacion": true, "orgs_desconectadas": 2, "gigante_tras_retirar": 30},
+      {"org": "babel", "intermediacion": 0.1987, "articulacion": true, "orgs_desconectadas": 2, "gigante_tras_retirar": 30},
+      {"org": "facebook", "intermediacion": 0.1141, "articulacion": true, "orgs_desconectadas": 2, "gigante_tras_retirar": 30}
+    ],
+    "nota": "google tiene mas intermediacion (0.1513) pero desconecta solo 1 organizacion; nodejs (0.2895) no es punto de articulacion"
+  },
+  "tendencias": {
+    "celda": 38,
+    "backend_41_nodos": {"normal_s": 0.0032, "paralelo_mejor_s": 0.0110, "primera_llamada_s": 2.3477, "aceleracion": 0.29},
+    "backend_gnp500_aceleracion": 5.41,
+    "backend_gnp1500_aceleracion": 6.16,
+    "llm": "Qwen/Qwen2.5-0.5B-Instruct en CPU (cache local de Hugging Face)",
+    "orgs_dataset_mencionadas": 9,
+    "entidades_fuera_de_datos_detector": 6
+  }
+}

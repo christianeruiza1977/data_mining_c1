@@ -1,0 +1,302 @@
+{
+  "notebook": "notebooks/Ejercicio_Practico_Semana1.ipynb",
+  "ejecucion": "Restart & Run All con .venv (Python 3.14.4, scikit-learn 1.9.1), SEMILLA=42; 15 celdas de codigo, execution_count 1-15, sin errores (incluye linea base R10)",
+  "nota": "celda = indice 0-based de la celda en notebook['cells'] del notebook final; valor = texto tal como aparece en la salida",
+  "cifras": [
+    {
+      "clave": "train_filas_limpias",
+      "celda": 7,
+      "valor": "Train: 924 filas"
+    },
+    {
+      "clave": "train_filas_duplicadas",
+      "celda": 7,
+      "valor": "724 duplicadas en las variables predictoras"
+    },
+    {
+      "clave": "train_combinaciones_unicas",
+      "celda": 7,
+      "valor": "200 combinaciones únicas"
+    },
+    {
+      "clave": "train_repeticiones_max_perfil",
+      "celda": 7,
+      "valor": "Repeticiones máximas de un mismo perfil en train: 9"
+    },
+    {
+      "clave": "val_filas_compartidas_con_train",
+      "celda": 7,
+      "valor": "Val: 88 de 132 filas tienen una combinación idéntica a una de train"
+    },
+    {
+      "clave": "val_filas_nuevas",
+      "celda": 31,
+      "valor": "Val: 88 filas con combinación vista en train, 44 filas con combinación NUEVA"
+    },
+    {
+      "clave": "test_filas_compartidas_con_train",
+      "celda": 27,
+      "valor": "Filas de test con una combinación idéntica a una de train: 93 de 101 | filas nuevas: 8"
+    },
+    {
+      "clave": "fuga_k6_svm_semilla42",
+      "celda": 16,
+      "valor": "SVM (semilla 42): F1 CON fuga = 0.4510 | F1 SIN fuga (Pipeline) = 0.4498 | diferencia = +0.0011"
+    },
+    {
+      "clave": "fuga_k6_svm_20particiones",
+      "celda": 16,
+      "valor": "SVM: diferencia media = -0.0027 ± 0.0053"
+    },
+    {
+      "clave": "fuga_k6_knn_20particiones",
+      "celda": 16,
+      "valor": "KNN: diferencia media = +0.0009 ± 0.0038"
+    },
+    {
+      "clave": "fuga_k3_svm_20particiones",
+      "celda": 16,
+      "valor": "SVM: diferencia media = +0.0503 ± 0.0260"
+    },
+    {
+      "clave": "fuga_ruido_20particiones",
+      "celda": 16,
+      "valor": "ilusión media = +0.0761 ± 0.0168"
+    },
+    {
+      "clave": "fuga_duplicados_arbol",
+      "celda": 16,
+      "valor": "F1 con folds simples = 0.9617 | F1 con folds agrupados = 0.5127 | inflación = +0.4491"
+    },
+    {
+      "clave": "f1_cv_defecto_logistica",
+      "celda": 26,
+      "valor": "Regresión Logística: F1 = 0.4382 ± 0.1256"
+    },
+    {
+      "clave": "f1_cv_defecto_arbol",
+      "celda": 26,
+      "valor": "Árbol de Decisión: F1 = 0.5358 ± 0.1263"
+    },
+    {
+      "clave": "f1_cv_defecto_svm",
+      "celda": 26,
+      "valor": "SVM: F1 = 0.4742 ± 0.1108"
+    },
+    {
+      "clave": "gridsearch_logistica",
+      "celda": 26,
+      "valor": "Regresión Logística: F1 CV = 0.4677 ± 0.1043 | 2.71s | {'modelo__C': 0.1, 'modelo__tol': 0.01}"
+    },
+    {
+      "clave": "gridsearch_arbol",
+      "celda": 26,
+      "valor": "Árbol de Decisión: F1 CV = 0.5358 ± 0.1263 | 1.18s | {'modelo__max_depth': 15, 'modelo__min_samples_split': 2}"
+    },
+    {
+      "clave": "gridsearch_svm",
+      "celda": 26,
+      "valor": "SVM: F1 CV = 0.7826 ± 0.0679 | 1.37s | {'modelo__C': 10, 'modelo__gamma': 1}"
+    },
+    {
+      "clave": "modelo_ganador_cv",
+      "celda": 26,
+      "valor": ">> Modelo ganador por CV agrupada: SVM <<"
+    },
+    {
+      "clave": "gridsearch_vs_optuna_grid",
+      "celda": 26,
+      "valor": "GridSearchCV (20 evaluaciones) -> F1 CV: 0.7826 | Tiempo: 1.37s | {'modelo__C': 10, 'modelo__gamma': 1}"
+    },
+    {
+      "clave": "gridsearch_vs_optuna_optuna",
+      "celda": 26,
+      "valor": "Optuna       (20 evaluaciones) -> F1 CV: 0.7826 | Tiempo: 3.10s | {'modelo__C': 100, 'modelo__gamma': 1}"
+    },
+    {
+      "clave": "pipeline_final",
+      "celda": 26,
+      "valor": "Pipeline final: SVM elegido por GridSearchCV | {'modelo__C': 10, 'modelo__gamma': 1} | F1 CV agrupada = 0.7826"
+    },
+    {
+      "clave": "test_n",
+      "celda": 27,
+      "valor": "Tamaño de test: 101 filas"
+    },
+    {
+      "clave": "test_f1_macro_una_vez",
+      "celda": 27,
+      "valor": "F1-Macro en Test (una sola vez): 0.9593 | F1 CV del mismo pipeline: 0.7826 | brecha: -0.1767"
+    },
+    {
+      "clave": "test_exactitud_wilson",
+      "celda": 27,
+      "valor": "Test todas (n=101): F1 macro = 0.9593 | exactitud = 97/101 = 0.9604 | IC95 Wilson [0.9026, 0.9845]"
+    },
+    {
+      "clave": "test_vistas_wilson",
+      "celda": 27,
+      "valor": "Test vistas en train (n=93): F1 macro = 1.0000 | exactitud = 93/93 = 1.0000 | IC95 Wilson [0.9603, 1.0000]"
+    },
+    {
+      "clave": "test_nuevas_wilson",
+      "celda": 27,
+      "valor": "Test nuevas (no vistas) (n=8): F1 macro = 0.4111 | exactitud = 4/8 = 0.5000 | IC95 Wilson [0.2152, 0.7848]"
+    },
+    {
+      "clave": "test_recall_anger",
+      "celda": 27,
+      "valor": "Anger: 9/9 = 1.000 | IC95 [0.701, 1.000]"
+    },
+    {
+      "clave": "test_recall_anxiety",
+      "celda": 27,
+      "valor": "Anxiety: 21/22 = 0.955 | IC95 [0.782, 0.992]"
+    },
+    {
+      "clave": "test_recall_boredom",
+      "celda": 27,
+      "valor": "Boredom: 14/16 = 0.875 | IC95 [0.640, 0.965]"
+    },
+    {
+      "clave": "test_recall_happiness",
+      "celda": 27,
+      "valor": "Happiness: 13/13 = 1.000 | IC95 [0.772, 1.000]"
+    },
+    {
+      "clave": "test_recall_neutral",
+      "celda": 27,
+      "valor": "Neutral: 26/27 = 0.963 | IC95 [0.817, 0.993]"
+    },
+    {
+      "clave": "test_recall_sadness",
+      "celda": 27,
+      "valor": "Sadness: 14/14 = 1.000 | IC95 [0.785, 1.000]"
+    },
+    {
+      "clave": "linea_base_mayoritaria_clase",
+      "celda": 27,
+      "valor": "Línea base de clase mayoritaria (siempre 'Happiness', ajustada solo con train)"
+    },
+    {
+      "clave": "linea_base_mayoritaria_test",
+      "celda": 27,
+      "valor": "test completo (n=101): F1 macro = 0.0380 | exactitud = 0.1287"
+    },
+    {
+      "clave": "linea_base_mayoritaria_test_nuevas",
+      "celda": 27,
+      "valor": "test filas nuevas (n=8): F1 macro = 0.0444 | exactitud = 0.1250"
+    },
+    {
+      "clave": "linea_base_mayoritaria_val_nuevas",
+      "celda": 27,
+      "valor": "val filas nuevas (n=44): F1 macro = 0.0714 | exactitud = 0.2727"
+    },
+    {
+      "clave": "linea_base_azar_uniforme",
+      "celda": 27,
+      "valor": "Azar uniforme (1 de 6 clases): F1 macro esperado = exactitud esperada = 0.1667"
+    },
+    {
+      "clave": "modelo_test_nuevas_vs_base",
+      "celda": 27,
+      "valor": "Modelo final en test filas nuevas: F1 macro = 0.4111"
+    },
+    {
+      "clave": "val_todo_f1_macro",
+      "celda": 31,
+      "valor": "Todo val (F1 macro global: 0.7830, n=132)"
+    },
+    {
+      "clave": "val_todo_exactitud_wilson",
+      "celda": 31,
+      "valor": "Exactitud: 102/132 = 0.7727 | IC95 Wilson [0.6941, 0.8359]"
+    },
+    {
+      "clave": "val_nuevas_f1_macro",
+      "celda": 31,
+      "valor": "Solo val con combinación NUEVA (no está en train) (F1 macro global: 0.2981, n=44)"
+    },
+    {
+      "clave": "val_nuevas_exactitud_wilson",
+      "celda": 31,
+      "valor": "Exactitud: 14/44 = 0.3182 | IC95 Wilson [0.2000, 0.4656]"
+    },
+    {
+      "clave": "sesgo_recall_sadness_female",
+      "celda": 31,
+      "valor": "Female               0.300  [0.11, 0.60]"
+    },
+    {
+      "clave": "sesgo_recall_sadness_male",
+      "celda": 31,
+      "valor": "Male                 1.000  [0.65, 1.00]"
+    },
+    {
+      "clave": "sesgo_brecha_f1_gender_val",
+      "celda": 31,
+      "valor": "Brecha de F1 macro (máx - mín): 0.2470"
+    },
+    {
+      "clave": "dbscan_elegido",
+      "celda": 19,
+      "valor": "Elegido: min_samples=30, eps=1.05"
+    },
+    {
+      "clave": "dbscan_codo_k30",
+      "celda": 19,
+      "valor": "Con k=30 el codo está en eps = 1.324 (percentil 84 de la curva); el eps elegido (1.05) queda en el percentil 54"
+    },
+    {
+      "clave": "dbscan_n_grupos",
+      "celda": 19,
+      "valor": "Número de grupos: 6"
+    },
+    {
+      "clave": "dbscan_pct_ruido",
+      "celda": 19,
+      "valor": "Porcentaje de ruido: 18.72%"
+    },
+    {
+      "clave": "dbscan_silueta_sin_ruido",
+      "celda": 19,
+      "valor": "Silueta DBSCAN (sin ruido): 0.2529"
+    },
+    {
+      "clave": "kmeans_silueta",
+      "celda": 19,
+      "valor": "Silueta K-Means (todos los puntos, sin ruido): 0.2881"
+    },
+    {
+      "clave": "pca_componentes_90",
+      "celda": 23,
+      "valor": "Umbral 0.90: 5 componentes (varianza acumulada 0.9079)"
+    },
+    {
+      "clave": "perfil_riesgo_grupo0_pct_negativa",
+      "celda": 19,
+      "valor": " 0        70.9       182    [63.9, 77.0]"
+    },
+    {
+      "clave": "ruido_pct_negativa",
+      "celda": 19,
+      "valor": "-1        27.2       173    [21.1, 34.2]"
+    },
+    {
+      "clave": "base_pct_negativa_train",
+      "celda": 10,
+      "valor": "Anxiety      16.88",
+      "nota": "45.9 % = 16.88 + 15.80 + 13.20 (Anxiety + Sadness + Anger), suma calculada sobre esta salida"
+    }
+  ],
+  "perfil_mayor_riesgo": {
+    "celda_evidencia": 19,
+    "celda_conclusion": 35,
+    "texto": "Grupo 0 de DBSCAN: 182 usuarios (19.7 %), ~27 años, 82 min/día, 3.2 publicaciones, 33 likes, 22 mensajes; 70.9 % emoción negativa (IC95 Wilson 63.9-77.0 %) frente a 45.9 % de la base"
+  },
+  "intervencion_piloto": {
+    "celda": 35,
+    "texto": "Fricción digital preventiva: ocultar temporalmente contadores de likes/comentarios y sugerir pausas cuando el pipeline marque emoción negativa en usuarios con ese perfil; medir contra grupo de control"
+  }
+}
